@@ -55,8 +55,6 @@ install misc/silocheck $RPM_BUILD_ROOT%{_sbindir}/silocheck
 install man/silo.conf.5 $RPM_BUILD_ROOT%{_mandir}/man5
 install man/silo.8 $RPM_BUILD_ROOT%{_mandir}/man8
 
-gzip -9nf docs/* ChangeLog
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -67,7 +65,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc docs/*.gz *.gz
+%doc docs/* ChangeLog
 /boot/first.b
 /boot/ultra.b
 /boot/cd.b

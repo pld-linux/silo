@@ -6,7 +6,7 @@ Release:	3
 License:	GPL
 Group:		Base
 Group(pl):	Podstawowe
-Source0:	ftp://sunsite.mff.cuni.cz/OS/Linux/Sparc/local/%{name}%{name}-%{version}.tgz
+Source0:	ftp://sunsite.mff.cuni.cz/OS/Linux/Sparc/local/%{name}/%{name}-%{version}.tgz
 ExclusiveArch:	sparc sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

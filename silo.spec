@@ -2,22 +2,17 @@ Summary:	The SILO boot loader for SPARCs
 Summary(fr):	Chargeur de boot Linux pour SPARCs
 Summary(pl):	SILO - boot loader dla maszyn sparcowych
 Name:		silo
-Version:	1.4.4
-Release:	0.1
+Version:	1.4.5
+Release:	1
 License:	GPL
 Group:		Base
-Source0:	http://www.sparc-boot.org/pub/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	315391d469e57a6a76cbe4c6c0a7561e
+Source0:	http://www.sparc-boot.org/pub/silo/%{name}-%{version}.tar.bz2
+# Source0-md5:	6514805fa3729a5f69149316b5970d23
 URL:		http://www.sparc-boot.org/
-ExclusiveArch:	sparc sparc64
-BuildRequires:	awk
-BuildRequires:	/bin/dd
 BuildRequires:	e2fsprogs-static
-BuildRequires:	glibc-static
 BuildRequires:	elftoaout
+ExclusiveArch:	sparc sparc64 sparcv9
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_sbindir	/sbin
 
 %description
 The silo package installs the SILO (Sparc Improved LOader) boot
@@ -41,13 +36,15 @@ Solarisa lub SunOSa.
 %setup -q
 
 %build
-%{__make}
+# ksh doesn't expand '\340' in echo, which is required to make working *.b
+# (first stage silently hangs otherwise)
+%{__make} \
+	SHELL=/bin/bash
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{boot,sbin,usr%{_sbindir},%{_mandir}/man{5,8}}
 
-make install \
+%{__make} install \
 	 DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -63,7 +60,7 @@ fi
 %attr(600,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}.conf
 %doc ChangeLog docs/* first-isofs/README.SILO_ISOFS
 /boot/*.b
+%attr(755,root,root) /sbin/*
+%attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_sbindir}/*
-%attr(755,root,root) /usr/bin/*
-%attr(755,root,root) /usr/sbin/*
 %{_mandir}/man[158]/*

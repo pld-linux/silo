@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 if [ -f /etc/silo.conf ]; then
-	/sbin/silo > /dev/null 2>&1
+	/sbin/silo -f > /dev/null 2>&1
 fi
 
 %files

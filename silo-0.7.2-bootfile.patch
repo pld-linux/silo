@@ -1,0 +1,47 @@
+diff -ur silo-0.7.2/second/main.c silo-0.7.2.ewt/second/main.c
+--- silo-0.7.2/second/main.c	Thu Apr  9 08:25:16 1998
++++ silo-0.7.2.ewt/second/main.c	Sun Jun  7 18:51:35 1998
+@@ -970,7 +970,7 @@
+     close ();
+     if (timer_status >= 1)
+         close_timer ();
+-    set_bootargs (params, params_device);
++    set_bootargs (kname, params, params_device);
+     if (kernel_params) {
+     	extern char barg_out[];
+     	int len = *(unsigned int *)kernel_params;
+diff -ur silo-0.7.2/second/misc.c silo-0.7.2.ewt/second/misc.c
+--- silo-0.7.2/second/misc.c	Tue Jun 17 09:10:15 1997
++++ silo-0.7.2.ewt/second/misc.c	Sun Jun  7 18:53:00 1998
+@@ -90,11 +90,18 @@
+ static char barg_buf[1024];
+ char barg_out[1024];
+ 
+-void set_bootargs (char *params, char *device)
++void set_bootargs (char * kernel, char *inparams, char *device)
+ {
+     char *q, *r, c;
+     char **p;
+     int iter, i;
++    char params[200];
++
++    strcpy(params, "bootfile=");
++    strcat(params, kernel);
++    strcat(params, " ");
++    strcat(params, inparams);
++    
+ 
+     /*
+      * We expect a kernel to extract a command line
+diff -ur silo-0.7.2/second/silo.h silo-0.7.2.ewt/second/silo.h
+--- silo-0.7.2/second/silo.h	Sat Mar 15 11:09:39 1997
++++ silo-0.7.2.ewt/second/silo.h	Sun Jun  7 18:51:29 1998
+@@ -72,7 +72,7 @@
+ void fatal (const char *);
+ char *get_bootargs (int);
+ void show_bootargs (void);
+-void set_bootargs (char *, char *);
++void set_bootargs (char *, char *, char *);
+ char *v0_device (char *);
+ enum arch get_architecture();
+ unsigned char *find_linux_HdrS (int);

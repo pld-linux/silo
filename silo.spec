@@ -8,6 +8,8 @@ Group:		Base
 Group(pl):	Podstawowe
 Source0:	ftp://sunsite.mff.cuni.cz/OS/Linux/Sparc/local/%{name}/%{name}-%{version}.tgz
 ExclusiveArch:	sparc sparc64
+BuildRequires:	e2fsprogs-static
+BuildRequires:	glibc-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir	/sbin

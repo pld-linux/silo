@@ -2,7 +2,7 @@ Summary:	The SILO boot loader for SPARCs
 Summary(fr):	Chargeur de boot Linux pour SPARCs
 Name:		silo
 Version:	0.9.9
-Release:	3
+Release:	4
 License:	GPL
 Group:		Base
 Group(pl):	Podstawowe
@@ -16,9 +16,15 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The silo package installs the SILO (Sparc Improved LOader) boot
-loader, which you'll need to boot Red Hat Linux on a SPARC. SILO
+loader, which you'll need to boot PLD Linux on a SPARC. SILO
 installs onto your system's boot block and can be configured to boot
 Linux, Solaris and SunOS.
+
+%description -l pl
+Pakiet zawiera SILO (Sparc Improved LOader), ktory jest niezbêdny do
+uruchomienia PLD Linuksa na SPARCu. SILO instaluje siê w bloku bootuj±cym
+systemu i mo¿e byæ skonfigurowany tak, aby ³adowa³ Linuksa, Solarisa lub
+SunOSa.
 
 %description -l fr
 Le paquetage silo installe le chargeur de boot SILO (Sparc Improved
@@ -56,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 if [ -f /etc/silo.conf ]; then
-	/sbin/silo >& /dev/null
+	/sbin/silo > /dev/null 2>&1
 fi
 
 %files

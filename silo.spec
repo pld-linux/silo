@@ -45,7 +45,8 @@ Solarisa lub SunOSa.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{boot,sbin,usr%{_sbindir},%{_mandir}/man{5,8}}
 
-make install DESTDIR=$RPM_BUILD_ROOT
+make install \
+	 DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT

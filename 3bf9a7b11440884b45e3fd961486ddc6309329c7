@@ -1,0 +1,3 @@
+- updated to 1.4.5
+- workaround for ksh/echo problem which caused silent hang in first stage
+- glibc-static is not buildrequired

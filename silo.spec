@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Base
 Group(pl):	Podstawowe
-Source0:	ftp://sunsite.mff.cuni.cz/OS/Linux/Sparc/local/%{name}/%{name}-%{version}.tgz
+Source0:	ftp://sunsite.mff.cuni.cz/OS/Linux/Sparc/local/%{name}/%{name}-%{version}.tar.gz
 ExclusiveArch:	sparc sparc64
 BuildRequires:	e2fsprogs-static
 BuildRequires:	glibc-static

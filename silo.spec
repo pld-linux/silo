@@ -10,6 +10,8 @@ Source0:	http://www.sparc-boot.org/pub/%{name}/%{name}-%{version}.tar.bz2
 # Source0-md5:	82daa8b5d03269aa6f78ca30e1eded53
 URL:		http://www.sparc-boot.org/
 ExclusiveArch:	sparc sparc64
+BuildRequires:	awk
+BuildRequires:	/bin/dd
 BuildRequires:	e2fsprogs-static
 BuildRequires:	glibc-static
 BuildRequires:	elftoaout
@@ -59,7 +61,7 @@ fi
 %files
 %defattr(644,root,root,755)
 %attr(600,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}.conf
-%doc docs/* ChangeLog
+%doc ChangeLog docs/* first-isofs/README.SILO_ISOFS
 /boot/*.b
 %attr(755,root,root) %{_sbindir}/*
 %attr(755,root,root) /usr/bin/*

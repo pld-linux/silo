@@ -2,14 +2,16 @@ Summary:	The SILO boot loader for SPARCs
 Summary(fr):	Chargeur de boot Linux pour SPARCs
 Summary(pl):	SILO - boot loader dla maszyn sparcowych
 Name:		silo
-Version:	1.0
-Release:	2
+Version:	1.2.6
+Release:	0.9
 License:	GPL
 Group:		Base
-Source0:	ftp://sunsite.mff.cuni.cz/OS/Linux/Sparc/local/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	0257516fca43286d2d894403d497f674
 ExclusiveArch:	sparc sparc64
 BuildRequires:	e2fsprogs-static
 BuildRequires:	glibc-static
+BuildRequires:	elftoaout
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir	/sbin
@@ -42,18 +44,7 @@ Solarisa lub SunOSa.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/{boot,sbin,usr%{_sbindir},%{_mandir}/man{5,8}}
 
-install boot/first.b $RPM_BUILD_ROOT/boot/first.b
-install boot/ultra.b $RPM_BUILD_ROOT/boot/ultra.b
-install boot/cd.b $RPM_BUILD_ROOT/boot/cd.b
-install boot/fd.b $RPM_BUILD_ROOT/boot/fd.b
-install boot/second.b $RPM_BUILD_ROOT/boot/second.b
-install boot/silotftp.b $RPM_BUILD_ROOT/boot/silotftp.b
-
-install sbin/silo $RPM_BUILD_ROOT%{_sbindir}/silo
-install misc/silocheck $RPM_BUILD_ROOT%{_sbindir}/silocheck
-
-install man/silo.conf.5 $RPM_BUILD_ROOT%{_mandir}/man5
-install man/silo.8 $RPM_BUILD_ROOT%{_mandir}/man8
+make install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -65,12 +56,10 @@ fi
 
 %files
 %defattr(644,root,root,755)
+%attr(600,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}.conf
 %doc docs/* ChangeLog
-/boot/first.b
-/boot/ultra.b
-/boot/cd.b
-/boot/fd.b
-/boot/silotftp.b
-/boot/second.b
+/boot/*.b
 %attr(755,root,root) %{_sbindir}/*
-%{_mandir}/man[58]/*
+%attr(755,root,root) /usr/bin/*
+%attr(755,root,root) /usr/sbin/*
+%{_mandir}/man[158]/*

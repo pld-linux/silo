@@ -32,7 +32,7 @@ uruchomienia PLD Linuksa na SPARCu. SILO instaluje siê w bloku
 bootuj±cym systemu i mo¿e byæ skonfigurowany tak, aby ³adowa³ Linuksa,
 Solarisa lub SunOSa.
 
-%prep 
+%prep
 %setup -q
 
 %build

@@ -9,7 +9,7 @@ Source: ftp://sunsite.mff.cuni.cz/pub/silo/silo-0.8.6.tgz
 Patch1: silo-0.7.2-bootfile.patch
 Patch2: silo-0.7.3-noromfs.patch
 
-BuildRoot: /var/tmp/%{name}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The silo package installs the SILO (Sparc Improved LOader) boot loader,

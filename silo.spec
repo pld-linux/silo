@@ -25,7 +25,7 @@ and SunOS.
 %build
 #make CC="gcc -DNO_ROMFS"
 
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT

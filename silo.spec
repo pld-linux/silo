@@ -2,7 +2,7 @@ Summary:	The SILO boot loader for SPARCs
 Summary(fr):	Chargeur de boot Linux pour SPARCs
 Summary(pl):	SILO - boot loader dla maszyn sparcowych
 Name:		silo
-Version:	1.3
+Version:	1.3.0
 Release:	0.9
 License:	GPL
 Group:		Base

@@ -1,0 +1,11 @@
+--- silo-1.4.9/second/main.c.orig	2004-06-21 03:58:48.000000000 +0200
++++ silo-1.4.9/second/main.c	2005-12-09 09:13:41.000000000 +0100
+@@ -24,6 +24,8 @@
+ 
+ /* TODO: This file is a good candidate for rewrite from scratch.  */
+ 
++/* avoid catching <unistd.h> through llh */
++#define _UNISTD_H 1
+ #include <silo.h>
+ #include <asm/page.h>
+ #include <linux/elf.h>

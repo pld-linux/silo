@@ -60,7 +60,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%attr(600,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}.conf
+%attr(600,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}.conf
 %doc ChangeLog docs/* first-isofs/README.SILO_ISOFS
 /boot/*.b
 %attr(755,root,root) /sbin/*

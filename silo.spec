@@ -2,12 +2,12 @@ Summary:	The SILO boot loader for SPARCs
 Summary(fr):	Chargeur de boot Linux pour SPARCs
 Summary(pl):	SILO - boot loader dla maszyn sparcowych
 Name:		silo
-Version:	1.4.12
+Version:	1.4.13
 Release:	1
 License:	GPL
 Group:		Base
 Source0:	http://www.sparc-boot.org/pub/silo/%{name}-%{version}.tar.bz2
-# Source0-md5:	034282d8ec4f1fa1b24e6215fe897c20
+# Source0-md5:	7039aabf3c1b3858ae8d0ccdde21343e
 URL:		http://www.sparc-boot.org/
 BuildRequires:	/bin/bash
 BuildRequires:	e2fsprogs-static

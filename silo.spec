@@ -3,13 +3,13 @@ Summary(fr):	Chargeur de boot Linux pour SPARCs
 Summary(pl):	SILO - boot loader dla maszyn sparcowych
 Name:		silo
 Version:	1.4.13
-Release:	1
+Release:	2
 License:	GPL
 Group:		Base
 Source0:	http://www.sparc-boot.org/pub/silo/%{name}-%{version}.tar.bz2
 # Source0-md5:	7039aabf3c1b3858ae8d0ccdde21343e
+Patch0:		%{name}-sh.patch
 URL:		http://www.sparc-boot.org/
-BuildRequires:	/bin/bash
 BuildRequires:	e2fsprogs-static
 BuildRequires:	elftoaout
 ExclusiveArch:	sparc sparc64 sparcv9
@@ -35,13 +35,11 @@ Solarisa lub SunOSa.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-# ksh doesn't expand '\340' in echo, which is required to make working *.b
-# (first stage silently hangs otherwise)
 %{__make} \
-	CC="%{__cc} -m32" \
-	SHELL=/bin/bash
+	CC="%{__cc} -m32"
 
 %install
 rm -rf $RPM_BUILD_ROOT

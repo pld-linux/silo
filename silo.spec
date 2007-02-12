@@ -1,6 +1,6 @@
 Summary:	The SILO boot loader for SPARCs
-Summary(fr):	Chargeur de boot Linux pour SPARCs
-Summary(pl):	SILO - boot loader dla maszyn sparcowych
+Summary(fr.UTF-8):   Chargeur de boot Linux pour SPARCs
+Summary(pl.UTF-8):   SILO - boot loader dla maszyn sparcowych
 Name:		silo
 Version:	1.4.13
 Release:	2
@@ -21,16 +21,16 @@ loader, which you'll need to boot PLD Linux on a SPARC. SILO installs
 onto your system's boot block and can be configured to boot Linux,
 Solaris and SunOS.
 
-%description -l fr
+%description -l fr.UTF-8
 Le paquetage silo installe le chargeur de boot SILO (Sparc Improved
-LOader) dont vous avez besoin pour démarrer Linux-Mandrake sur une
-SPARC. SILO s'installe sur le "boot block" de votre système et peut
-être configuré pour démarrer Linux, Solaris et SunOS.
+LOader) dont vous avez besoin pour dÃ©marrer Linux-Mandrake sur une
+SPARC. SILO s'installe sur le "boot block" de votre systÃ¨me et peut
+Ãªtre configurÃ© pour dÃ©marrer Linux, Solaris et SunOS.
 
-%description -l pl
-Pakiet zawiera SILO (Sparc Improved LOader), ktory jest niezbêdny do
-uruchomienia PLD Linuksa na SPARCu. SILO instaluje siê w bloku
-bootuj±cym systemu i mo¿e byæ skonfigurowany tak, aby ³adowa³ Linuksa,
+%description -l pl.UTF-8
+Pakiet zawiera SILO (Sparc Improved LOader), ktory jest niezbÄ™dny do
+uruchomienia PLD Linuksa na SPARCu. SILO instaluje siÄ™ w bloku
+bootujÄ…cym systemu i moÅ¼e byÄ‡ skonfigurowany tak, aby Å‚adowaÅ‚ Linuksa,
 Solarisa lub SunOSa.
 
 %prep

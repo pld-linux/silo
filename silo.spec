@@ -8,8 +8,9 @@ License:	GPL
 Group:		Base
 Source0:	http://www.sparc-boot.org/pub/silo/%{name}-%{version}.tar.bz2
 # Source0-md5:	7039aabf3c1b3858ae8d0ccdde21343e
-Patch0:		%{name}-sh.patch
+Patch0:		%{name}-git.patch
 URL:		http://www.sparc-boot.org/
+BuildRequires:	bash
 BuildRequires:	e2fsprogs-static
 BuildRequires:	elftoaout
 ExclusiveArch:	sparc sparc64 sparcv9
@@ -39,8 +40,8 @@ Solarisa lub SunOSa.
 
 %build
 %{__make} \
-	CC="%{__cc} -m32"
-
+	CC="%{__cc} -m32" 
+	
 %install
 rm -rf $RPM_BUILD_ROOT
 

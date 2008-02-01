@@ -1,0 +1,11 @@
+--- include/ufs/ufs_fs.h~	2008-01-21 16:09:44.000000000 +0100
++++ include/ufs/ufs_fs.h	2008-01-21 16:09:59.000000000 +0100
+@@ -32,7 +32,7 @@
+ 
+ #include <linux/types.h>
+ #include <linux/kernel.h>
+-#include <linux/stat.h>
++//#include <linux/stat.h>
+ #include <linux/fs.h>
+ 
+ #ifndef __KERNEL__
